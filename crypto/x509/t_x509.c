@@ -71,7 +71,7 @@ int X509_print_ex(BIO *bp, X509 *x, unsigned long nmflags,
     }
     if (!(cflag & X509_FLAG_NO_VERSION)) {
         l = X509_get_version(x);
-        if (l >= 0 && l <= 2) {
+        if (l >= X509V1_VERSION && l <= X509V3_VERSION) {
             if (BIO_printf(bp, "%8sVersion: %ld (0x%lx)\n", "", l + 1, (unsigned long)l) <= 0)
                 goto err;
         } else {

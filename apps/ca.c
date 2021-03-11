@@ -1254,8 +1254,8 @@ end_of_options:
             }
         }
         if (crl_ext != NULL || crl_v2) {
-            if (!X509_CRL_set_version(crl, 1))
-                goto end;       /* version 2 CRL */
+            if (!X509_CRL_set_version(crl, X509V2_VERSION))
+                goto end;
         }
 
         /* we have a CRL number that need updating */
